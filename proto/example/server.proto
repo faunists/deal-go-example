@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "google/protobuf/struct.proto";
+
+option go_package = "github.com/faunists/deal-go-example/example";
+
+message RequestMessage {
+  string requestField = 1;
+  google.protobuf.Struct anotherField = 2;
+}
+
+message ResponseMessage {
+  int64 responseField = 1;
+}
+
+service MyService {
+  rpc MyMethod(RequestMessage) returns (ResponseMessage);
+}
+
+service Test {
+  rpc MyMethod(RequestMessage) returns (ResponseMessage);
+}

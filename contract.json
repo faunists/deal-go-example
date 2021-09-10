@@ -1,0 +1,32 @@
+{
+  "name": "Some Name Here",
+  "services": {
+    "MyService": {
+      "MyMethod": {
+        "successCases": [
+          {
+            "description": "Should do something",
+            "request": {
+              "requestField": "VALUE"
+            },
+            "response": {
+              "responseField": 42
+            }
+          }
+        ],
+        "failureCases": [
+          {
+            "description": "Some description here",
+            "request": {
+              "requestField": "ANOTHER_VALUE"
+            },
+            "error": {
+              "errorCode": "NotFound",
+              "message": "ANOTHER_VALUE NotFound"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
