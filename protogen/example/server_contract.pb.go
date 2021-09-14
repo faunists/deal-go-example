@@ -32,6 +32,23 @@ func (_ MyServiceContractClient) MyMethod(ctx context.Context, in *RequestMessag
 	}
 }
 
+type MyServiceStubServer struct {
+	UnimplementedMyServiceServer
+}
+
+func (MyServiceStubServer) MyMethod(ctx context.Context, in *RequestMessage) (*ResponseMessage, error) {
+	switch {
+	case proto.Equal(in, &RequestMessage{RequestField: "VALUE"}):
+		// Description: Should do something
+		return &ResponseMessage{ResponseField: 42}, nil
+	case proto.Equal(in, &RequestMessage{RequestField: "ANOTHER_VALUE"}):
+		// Description: Some description here
+		return nil, status.Errorf(codes.NotFound, "ANOTHER_VALUE NotFound")
+	default:
+		return nil, nil
+	}
+}
+
 func MyServiceContractTest(t *testing.T, ctx context.Context, server *grpc.Server) {
 	// gRPC Server setup
 	bufSize := 1024 * 1024
