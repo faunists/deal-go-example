@@ -1,11 +1,15 @@
-version: v1beta1
+version: v1
 plugins:
   - name: go
     out: protogen
-    opt: paths=source_relative
+    opt:
+      - paths=source_relative
   - name: go-grpc
     out: protogen
-    opt: paths=source_relative
+    opt:
+      - paths=source_relative
   - name: go-deal
     out: protogen
-    opt: paths=source_relative,contract-file=contract.json
+    opt:
+     - paths=source_relative
+     - contract-file=contract.json

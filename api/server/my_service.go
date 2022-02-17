@@ -3,7 +3,8 @@ package server
 import (
 	"context"
 
-	"github.com/faunists/deal-go-example/protogen/example"
+	"github.com/faunists/deal-go-example/protogen/proto/example"
+
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

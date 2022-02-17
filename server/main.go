@@ -5,8 +5,6 @@ import (
 	"net"
 
 	"github.com/faunists/deal-go-example/protogen/proto/example"
-
-	"github.com/faunists/deal-go-example/api/server"
 	"google.golang.org/grpc"
 )
 
@@ -18,7 +16,8 @@ func main() {
 	defer func() { _ = listener.Close() }()
 
 	grpcServer := grpc.NewServer()
-	example.RegisterMyServiceServer(grpcServer, &server.MyServer{})
+	stubServer := example.MyServiceStubServer{}
+	example.RegisterMyServiceServer(grpcServer, &stubServer)
 
 	log.Printf("grpc server listening at %v", listener.Addr())
 	if err = grpcServer.Serve(listener); err != nil {

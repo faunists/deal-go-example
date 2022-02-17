@@ -1,7 +1,8 @@
-version: v1beta1
-build:
-  roots:
-    - proto
+version: v1
+name: buf.build/faunists/deal-go-example
+breaking:
+  use:
+    - FILE
 lint:
   use:
     - DEFAULT

@@ -4,8 +4,9 @@ import (
 	"context"
 	"testing"
 
+	"github.com/faunists/deal-go-example/protogen/proto/example"
+
 	"github.com/faunists/deal-go-example/api/server"
-	"github.com/faunists/deal-go-example/protogen/example"
 	"google.golang.org/grpc"
 )
 
